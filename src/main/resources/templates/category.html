@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:margin-left="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Sklep babci Jadzi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <style margin-left:="50px"></style>
+</head>
+
+<body style="font-family:verdana; margin-left: 100px;">
+
+<div>
+    <h1> Witamy w sklepie babci Jadzi</h1>
+    <p>Dostępne produkty z wybranej kategorii</p>
+</div>
+<div>
+    <a th:href="@{'allProducts?kategoria='+${productCategory.category}}" class="productCategory"/>
+</div>
+
+</body>
+</html>

@@ -1,11 +1,16 @@
 package pl.kinga.produkty;
 
+import jdk.jfr.Category;
+
 public class Product {
     private String name;
-    private String price;
-    private String category;
+    private int price;
+    private ProductCategory category;
 
-    public Product(String name, String price, String category) {
+    public Product() {
+    }
+
+    public Product(String name, int price, ProductCategory category) {
         this.name = name;
         this.price = price;
         this.category = category;
@@ -19,19 +24,19 @@ public class Product {
         this.name = name;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public String getCategory() {
+    public ProductCategory getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(ProductCategory category) {
         this.category = category;
     }
 
@@ -39,8 +44,8 @@ public class Product {
     public String toString() {
         return "Product{" +
                 "name='" + name + '\'' +
-                ", price='" + price + '\'' +
-                ", category='" + category + '\'' +
+                ", price=" + price +
+                ", category=" + category +
                 '}';
     }
 }
