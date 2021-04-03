@@ -23,7 +23,6 @@ public class ProductController {
     }
 
     @GetMapping("/allProducts")
-    @ResponseBody
     public String product(@RequestParam(required = false, name = "category") ProductCategory category, Model model) {
         List<Product> products;
         if (category != null) {

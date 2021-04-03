@@ -11,15 +11,15 @@
     </li>
 </ul>
 <a href="/">powrot do strony głónej</a>
-<form action="#"  th:action="@{/allProducts}" th:object="${products}" method="post">
+<form th:action="@{/allProducts}" th:object="${product}" method="post">
 
     <input type="text" placeholder="nazwa" th:field="*{name}">
     <input type="number" placeholder="cena" th:field="*{price}">
     <input type="text" placeholder="kategoria" th:field="*{category}">
     <select name="Wybierz kategorie">
-        <option> GROCERIES</option>
-        <option> HOUSEHOLDS</option>
-        <option> OTHER</option>
+        <option>GROCERIES</option>
+        <option>HOUSEHOLDS</option>
+        <option>OTHER</option>
     </select>
     <input type="submit" value="Dodaj!">
 
