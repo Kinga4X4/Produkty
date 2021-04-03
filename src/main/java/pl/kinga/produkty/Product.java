@@ -1,7 +1,5 @@
 package pl.kinga.produkty;
 
-import jdk.jfr.Category;
-
 public class Product {
     private String name;
     private int price;

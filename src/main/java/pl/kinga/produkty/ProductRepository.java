@@ -22,13 +22,16 @@ public class ProductRepository {
         return products;
     }
 
-    public List<Product> findByCategory(String category) {
+    public List<Product> findByCategory(ProductCategory category) {
+        List<Product> filtered = new ArrayList<>();
+
         for (Product product : products) {
-            if (product.getCategory().equals(category)) {
-                return products;
+            if (product.getCategory() == category) {
+                filtered.add(product);
             }
         }
-        return null;
+        return filtered;
     }
 }
+
 

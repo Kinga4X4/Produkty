@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Wszystkie produkty</title>
@@ -10,12 +10,22 @@
     <li th:each="product:${products}" th:text="|${product.name} ${product.price} ${product.category}|">
     </li>
 </ul>
-<form action="/dodaj" method="post" th:object="${product}">
+<a href="/">powrot do strony głónej</a>
+<form action="#"  th:action="@{/allProducts}" th:object="${products}" method="post">
+
     <input type="text" placeholder="nazwa" th:field="*{name}">
     <input type="number" placeholder="cena" th:field="*{price}">
     <input type="text" placeholder="kategoria" th:field="*{category}">
+    <select name="Wybierz kategorie">
+        <option> GROCERIES</option>
+        <option> HOUSEHOLDS</option>
+        <option> OTHER</option>
+    </select>
     <input type="submit" value="Dodaj!">
+
 </form>
+
+
 
 </body>
 </html>
