@@ -2,10 +2,7 @@ package pl.kinga.produkty;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,7 +25,6 @@ public class ProductController {
         if (category != null) {
             model.addAttribute("product", new Product());
             model.addAttribute("products", productRepository.findByCategory(category));
-
         } else {
             model.addAttribute("products", productRepository.findAll());
             return "allProducts";
@@ -36,10 +32,12 @@ public class ProductController {
         return "allProducts";
     }
 
-    @PostMapping("/dodaj")
-    public String add(Product product) {
-        productRepository.products.add(product);
-        return "redirect:/allProducts";
+    @RequestMapping("/")
+    @ResponseBody
+    public String add(@RequestParam String name, @RequestParam int price, @RequestParam ProductCategory productCategory) {
+        Product product = new Product(name, price, productCategory);
+        productRepository.addProduct(product);
+        return product.getName();
     }
-
 }
+

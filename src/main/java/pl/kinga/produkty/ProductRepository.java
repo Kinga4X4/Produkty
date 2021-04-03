@@ -24,13 +24,16 @@ public class ProductRepository {
 
     public List<Product> findByCategory(ProductCategory category) {
         List<Product> filtered = new ArrayList<>();
-
         for (Product product : products) {
             if (product.getCategory() == category) {
                 filtered.add(product);
             }
         }
         return filtered;
+    }
+
+    public void addProduct(Product product) {
+        products.add(product);
     }
 }
 
