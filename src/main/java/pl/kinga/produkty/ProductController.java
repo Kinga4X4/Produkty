@@ -20,14 +20,21 @@ public class ProductController {
     }
 
     @GetMapping("/allProducts")
-    public String product(@RequestParam(required = false, name = "category") ProductCategory category, Model model) {
-        List<Product> products;
+    public String product(@RequestParam(required = false, value = "category") ProductCategory category, Model model) {
+        List<Product> products = productRepository.findAll();
+
         if (category != null) {
             model.addAttribute("product", new Product());
             model.addAttribute("products", productRepository.findByCategory(category));
         } else {
             model.addAttribute("products", productRepository.findAll());
-            return "allProducts";
+        }
+        double sum = 0;
+        for (Product product : products) {
+            if (product.getCategory().equals(category)) {
+                sum += product.getPrice();
+                model.addAttribute("priceSum", sum);
+            }
         }
         return "allProducts";
     }

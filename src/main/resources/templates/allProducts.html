@@ -6,10 +6,12 @@
 </head>
 <body style="font-family:verdana; margin-left: 100px;">
 <h1>DOSTĘPNE PRODUKTY</h1>
+
 <ul>
-    <li th:each="product:${products}" th:text="|${product.name} ${product.price} ${product.category}|">
-    </li>
+    <li th:each="product:${products}" th:text="|${product.name} ${product.price}zł ${product.category}|"></li>
 </ul>
+
+<p th:text="|Suma cen:${priceSum}zł|"></p>
 
 <a href="/">powrot do strony głównej</a>
 
