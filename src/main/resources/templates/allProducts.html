@@ -13,6 +13,24 @@
 
 <p th:text="|Suma cen:${priceSum}zł|"></p>
 
+
+<h2>Dodawanie produktu</h2>
+
+<form action="/dodaj" method="post">
+
+    <input type="text" placeholder="nazwa" field="*{name}">
+    <input type="number" placeholder="cena" field="*{price}">
+    <label>Kategoria</label>
+    <select input type="text" placeholder="kategoria" field="*{category}">
+        <option selected disabled>Wybierz...</option>
+        <option value="GROCERIES">Art. gosp. domowego</option>
+        <option value="HOUSEHOLDS">Art. spożywcze</option>
+        <option value="OTHER">Inne</option>
+    </select>
+    <input type="submit" value="Dodaj!"class="btn btn-primary"> </br>
+
+</form>
+
 <a href="/">powrot do strony głównej</a>
 
 </body>

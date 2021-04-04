@@ -39,12 +39,12 @@ public class ProductController {
         return "allProducts";
     }
 
-    @RequestMapping("/")
-    @ResponseBody
-    public String add(@RequestParam String name, @RequestParam int price, @RequestParam ProductCategory productCategory) {
-        Product product = new Product(name, price, productCategory);
+    @PostMapping("/add")
+    public String add(@RequestParam String name, @RequestParam int price, @RequestParam ProductCategory category) {
+        Product product = new Product(name, price, category);
         productRepository.addProduct(product);
-        return product.getName();
+        return "redirect:/allProducts";
     }
 }
+
 
