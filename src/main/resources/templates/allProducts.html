@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wszystkie produkty</title>
+</head>
+<body style="font-family:verdana; margin-left: 100px;">
+<h1>DOSTĘPNE PRODUKTY</h1>
+
+<ul>
+    <li th:each="product:${products}" th:text="|${product.name} ${product.price}zł ${product.category}|"></li>
+</ul>
+
+<p th:text="|Suma cen:${priceSum}zł|"></p>
+
+
+<h2>Dodawanie produktu</h2>
+
+<form action="/add" method="post">
+
+    <input type="text" placeholder="nazwa" field="*{name}">
+    <input type="number" placeholder="cena" field="*{price}">
+    <label>Kategoria</label>
+    <select input type="text" placeholder="kategoria" field="*{category}">
+        <option selected disabled>Wybierz...</option>
+        <option value="GROCERIES">Art. gosp. domowego</option>
+        <option value="HOUSEHOLDS">Art. spożywcze</option>
+        <option value="OTHER">Inne</option>
+    </select>
+    <input type="submit" value="Dodaj!"class="btn btn-primary"> </br>
+
+</form>
+
+<a href="/">powrot do strony głównej</a>
+
+</body>
+</html>

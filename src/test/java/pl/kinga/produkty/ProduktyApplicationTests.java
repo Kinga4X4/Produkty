@@ -1,4 +1,4 @@
-package pl.kingaP.Produkty;
+package pl.kinga.produkty;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
