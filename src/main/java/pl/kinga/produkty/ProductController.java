@@ -30,17 +30,22 @@ public class ProductController {
             model.addAttribute("products", productRepository.findAll());
         }
         double sum = 0;
+        String result = "";
         for (Product product : products) {
             if (product.getCategory().equals(category)) {
                 sum += product.getPrice();
+                result += product.getName() + " " + product.getCategory() + " " + product.getPrice() + "<br/>";
                 model.addAttribute("priceSum", sum);
             }
         }
         return "allProducts";
     }
 
+
     @PostMapping("/add")
-    public String add(@RequestParam String name, @RequestParam int price, @RequestParam ProductCategory category) {
+    public String add(@RequestParam String name,
+                      @RequestParam int price,
+                      @RequestParam ProductCategory category) {
         Product product = new Product(name, price, category);
         productRepository.addProduct(product);
         return "redirect:/allProducts";
